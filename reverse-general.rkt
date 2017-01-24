@@ -24,7 +24,7 @@
          ((NUMBER? (CAR L))
           (+ (CAR L) (sum-up-numbers-general (CDR L))))
          ((LIST? (CAR L))
-           (+ 0 (sum-up-numbers-general (CAR L)))
+           (+ 0 (sum-up-numbers-general (CAR L)) (sum-up-numbers-general (CDR L)))
          )
          (ELSE
           (+ 0 (sum-up-numbers-general (CDR L))))
