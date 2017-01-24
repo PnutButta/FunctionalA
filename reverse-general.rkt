@@ -16,8 +16,6 @@
           (+ (CAR L) (sum-up-numbers-simple (CDR L))))
          (ELSE
           (+ 0 (sum-up-numbers-simple (CDR L))))
-<<<<<<< HEAD
-=======
          )
         )
 (DEFINE (sum-up-numbers-general L)
@@ -35,8 +33,7 @@
 (DEFINE (min-above-min L1 L2)
         (COND
          ((NULL? L1) #F)
-         ((NULL? L2))
+         ((NULL? L2) (EVAL (CONS 'min L1)))
          
->>>>>>> reverse-general
          )
         )
