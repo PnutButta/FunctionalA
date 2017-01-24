@@ -16,6 +16,8 @@
           (+ (CAR L) (sum-up-numbers-simple (CDR L))))
          (ELSE
           (+ 0 (sum-up-numbers-simple (CDR L))))
+<<<<<<< HEAD
+=======
          )
         )
 (DEFINE (sum-up-numbers-general L)
@@ -35,5 +37,6 @@
          ((NULL? L1) #F)
          ((NULL? L2))
          
+>>>>>>> reverse-general
          )
         )
