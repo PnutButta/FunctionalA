@@ -22,13 +22,12 @@
         (COND
          ((NULL? L) 0)
          ((NUMBER? (CAR L))
-          (+ (CAR L) (sum-up-numbers-simple (CDR L))))
+          (+ (CAR L) (sum-up-numbers-general (CDR L))))
          ((LIST? (CAR L))
-           ((NULL? (CAR L)) 0)
-           (+ (CAR (CAR L)) (sum-up-numbers-simple (CDR (CAR L))))
+           (+ (CAR (CAR L)) (sum-up-numbers-general (CDR (CAR L))))
           )
          (ELSE
-          (+ 0 (sum-up-numbers-simple (CDR L))))
+          (+ 0 (sum-up-numbers-general (CDR L))))
          )
         )
 (DEFINE (min-above-min L1 L2)
