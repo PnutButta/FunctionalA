@@ -31,8 +31,8 @@
         )
 (DEFINE (min-above-min L1 L2)
         (COND
-         ((NULL? L1) 0)
-         ((NULL? L2) (sum-up-numbers-simple '(L1)))
+         ((NULL? L1) #F)
+         ((NULL? L2))
          
          )
         )
