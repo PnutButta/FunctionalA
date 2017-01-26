@@ -35,7 +35,13 @@
          ((NULL? L1) #F)
          ((NULL? L2)
           (COND
-           ((NULL? (CDR L1)) (CAR L1))
+           ((NULL? (CDR L1))
+            (COND
+             ((NOT (NUMBER? (CAR L1))) #F)
+             (ELSE
+              (CAR L1))
+             )
+            )
            ((NOT (NUMBER? (CAR L1))) (min-above-min (CDR L1) L2))
            ((< (CAR L1) (min-above-min (CDR L1) L2)) (CAR L1))
            (ELSE
