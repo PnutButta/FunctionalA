@@ -1,8 +1,8 @@
 (DEFINE (reverse-general L)
   (COND
     ((NULL? L) L)
-    ((LIST? (CAR L))
-     (append (reverse-general (CAR L)) (CDR L))
+    (ELSE
+     (append  (reverse-general (CDR L)) (LIST(CAR L)))
     )
    )
   )
