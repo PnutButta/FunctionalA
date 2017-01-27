@@ -43,16 +43,15 @@
           (min-above-min 
            (CONS
             (COND
-              ((>(CAR L1) (min-above-min L2 (LIST))) (CAR L1))
+              ((< (min-above-min L2 (LIST)) (CAR L1)) (CAR L1))
               (ELSE
                (COND
-                ((NULL? (CDR L1))
-                 (min-above-min (LIST) L2))
+                ((NULL? (CDR L1)) #F)
                 (ELSE
                  (min-above-min (CDR L1) L2))
                 )
                )
-            ) (LIST))
+            )(LIST))
            (LIST))
           )
          )
