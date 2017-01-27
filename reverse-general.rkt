@@ -40,22 +40,21 @@
           )
          (ELSE
           (min-above-min 
-           (CONS
-            (COND
+           (COND
               ((NULL? (CDR L1)) #F)
-              ((> (CAR L1) (min-above-min L2 (LIST))) (CAR L1))
+              ((<= (CAR L1) (min-above-min L2 (LIST))) (min-above-min (CDR L1) L2))
               (ELSE
-               (min-above-min (CDR L1) L2))
+               (CAR L1))
             ) (LIST)
-           ) (LIST))
+           (LIST))
           )
          )
         )
 (DEFINE (greater-than L a)
         (COND
          ((NULL? L) #f)
-         ((NOT (NUMBER? (CAR L)) (greater-than (CDR L) a)))
-         ((< (CAR L) a) (greater-than (CDR L) a))
+         ((NOT(NUMBER? (CAR L))) (greater-than (CDR L) a))
+         ((<= (CAR L) a) (greater-than (CDR L) a))
          (ELSE
           (CONS (CAR L) (greater-than (CDR L) a))
          )
