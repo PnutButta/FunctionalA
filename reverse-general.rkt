@@ -2,10 +2,7 @@
   (COND
     ((NULL? L) L)
     ((LIST? (CAR L))
-     (append (reverse-general (CDR L)) (CAR L))
-    (ELSE
-     (reverse-general (CDR L))
-     (DISPLAY (CAR L))
+     (append (reverse-general (CAR L)) (CDR L))
     )
    )
   )
@@ -45,16 +42,22 @@
           (min-above-min 
            (CONS
             (COND
-              ((< (min-above-min L2 (LIST)) (CAR L1)) (CAR L1))
+              ((NULL? (CDR L1)) #F)
+              ((> (CAR L1) (min-above-min L2 (LIST))) (CAR L1))
               (ELSE
-               (COND
-                ((NULL? (CDR L1)) #F)
-                (ELSE
-                 (min-above-min (CDR L1) L2))
-                )
-               )
-            )(LIST))
-           (LIST))
+               (min-above-min (CDR L1) L2))
+            ) (LIST)
+           ) (LIST))
           )
          )
         )
+(DEFINE (greater-than L a)
+        (COND
+         ((NULL? L) #f)
+         ((NOT (NUMBER? (CAR L)) (greater-than (CDR L) a)))
+         ((< (CAR L) a) (greater-than (CDR L) a))
+         (ELSE
+          (CONS (CAR L) (greater-than (CDR L) a))
+         )
+        )
+       )
