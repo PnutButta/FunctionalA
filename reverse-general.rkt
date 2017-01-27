@@ -1,11 +1,13 @@
 (DEFINE (reverse-general L)
   (COND
     ((NULL? L) L)
-    ((LIST? L)
-     (append (reverse-general (CDR L))
-             (LIST (reverse-general (CAR L)))))
-    (ELSE L)
+    ((LIST? (CAR L))
+     (append (reverse-general (CDR L)) (CAR L))
+    (ELSE
+     (reverse-general (CDR L))
+     (DISPLAY (CAR L))
     )
+   )
   )
 (DEFINE (sum-up-numbers-simple L)
         (COND
