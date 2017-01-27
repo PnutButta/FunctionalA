@@ -40,7 +40,6 @@
            )
           )
          (ELSE
-          ;(min-above-min (greater-than (L1) (min-above-min L2 (LIST))) (LIST))
           (min-above-min
            (COND
             ((NULL? L1) '())
