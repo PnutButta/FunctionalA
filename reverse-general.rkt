@@ -42,7 +42,7 @@
          (ELSE
           (min-above-min
            (COND
-            ((NULL? L1) '())
+            ((NULL? (CDR L1)) '())
             ((NOT(NUMBER? (CAR L1))) (greater-than (CDR L1) (min-above-min L2 (LIST))))
             ((<= (CAR L1) (min-above-min L2 (LIST))) (greater-than (CDR L1) (min-above-min L2 (LIST))))
             (ELSE
